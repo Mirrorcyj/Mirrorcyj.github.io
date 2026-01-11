@@ -1,0 +1,60 @@
+---
+layout: default
+---
+
+<div class="home-intro">
+  <h1>欢迎来到我的个人主页</h1>
+  <p>这里记录我的工作心得、技术分享和学习笔记。希望通过文字与大家交流，共同成长。</p>
+</div>
+
+<h2>最新文章</h2>
+
+<ul class="post-list">
+  {% for post in site.posts limit: 10 %}
+  <li class="post-item">
+    <h3 class="post-item-title">
+      <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+    </h3>
+    <div class="post-item-meta">
+      <time datetime="{{ post.date | date: '%Y-%m-%d' }}">
+        {{ post.date | date: "%Y年%m月%d日" }}
+      </time>
+    </div>
+    <div class="post-item-excerpt">
+      {% if post.excerpt %}
+        {{ post.excerpt | strip_html | truncatewords: 30 }}
+      {% else %}
+        {{ post.content | strip_html | truncatewords: 30 }}
+      {% endif %}
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+
+{% if site.posts.size > 10 %}
+<div class="more-posts">
+  <a href="{{ site.baseurl }}/archive" class="more-link">查看所有文章 →</a>
+</div>
+{% endif %}
+
+<style>
+.more-posts {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.more-link {
+  display: inline-block;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.more-link:hover {
+  color: var(--link-hover);
+}
+</style>

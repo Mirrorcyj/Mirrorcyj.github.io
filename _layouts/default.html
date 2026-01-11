@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/main.css">
+  {% seo %}
+  {% feed_meta %}
+</head>
+<body>
+  {% include header.html %}
+  
+  <main class="main-content">
+    <div class="container">
+      {{ content }}
+    </div>
+  </main>
+  
+  {% include footer.html %}
+</body>
+</html>

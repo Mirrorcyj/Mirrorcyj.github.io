@@ -1,0 +1,26 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <p>&copy; {{ 'now' | date: "%Y" }} {{ site.author }}. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="{{ site.baseurl }}/feed.xml" class="rss-link" title="RSS Feed">
+          RSS
+        </a>
+        {% if site.social %}
+        <div class="social-links">
+          {% if site.social.github %}
+          <a href="https://github.com/{{ site.social.github }}" target="_blank" rel="noopener noreferrer">
+            GitHub
+          </a>
+          {% endif %}
+          {% if site.social.email %}
+          <a href="mailto:{{ site.social.email }}">
+            Email
+          </a>
+          {% endif %}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</footer>
